@@ -2,7 +2,7 @@ import boto3
 import json
 from boto3_type_annotations.sqs import ServiceResource, Queue, Message
 
-DATA_QUEUE_REGION = 'us-west-1'
+DATA_QUEUE_REGION = 'us-east-1'
 
 sqs = boto3.resource('sqs',DATA_QUEUE_REGION)
 queue = sqs.get_queue_by_name(QueueName='test_status_queue.fifo')
@@ -17,4 +17,5 @@ response = queue.send_message(
     MessageGroupId='test_status'
 )
 
+prit("new thing")
 print(response)
